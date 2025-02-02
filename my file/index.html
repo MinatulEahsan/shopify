@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify Store</title>
+	<link href="~/css/site.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    color: #333;
+    text-align: center;
+}
+
+header {
+    background: #222;
+    color: white;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+    nav ul li {
+        display: inline;
+    }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+.hero {
+    background: url(https://www.shutterstock.com/image-photo/top-view-female-fashion-accessories-600w-320195168.jpg) no-repeat center center/cover;
+    padding: 100px 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.shop-btn {
+    background: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+    .shop-btn:hover {
+        background: #e64a19;
+    }
+
+.product-section {
+    padding: 50px 20px;
+}
+
+.product-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.product-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+    .product-card:hover {
+        transform: scale(1.05);
+    }
+
+    .product-card img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff5722;
+    display: block;
+    margin-top: 10px;
+}
+
+footer {
+    background: #222;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
+.auth-section {
+    background: #fff;
+    padding: 40px 20px;
+    max-width: 400px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+    .auth-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .auth-section form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .auth-section input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+        .auth-section input:focus {
+            border-color: #ff5722;
+            outline: none;
+        }
+
+    .auth-section button {
+        background: #ff5722;
+        color: white;
+        padding: 10px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background 0.3s;
+    }
+
+        .auth-section button:hover {
+            background: #e64a19;
+        }
+
+@media (max-width: 500px) {
+    .auth-section {
+        width: 90%;
+    }
+}
+/* General styles for the checkout section */
+.checkout-section {
+    background-color: #fff;
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+    /* Checkout section header */
+    .checkout-section h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    /* Paragraph with the total amount */
+    .checkout-section p {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    /* Total price styling */
+    .checkout-section #total-price {
+        font-size: 24px;
+        font-weight: bold;
+        color: #e74c3c;
+    }
+
+    /* Button styling for the payment button */
+    .checkout-section button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        /* Button hover effect */
+        .checkout-section button:hover {
+            background-color: #45a049;
+        }
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    .checkout-section {
+        padding: 20px;
+    }
+
+        .checkout-section h2 {
+            font-size: 24px;
+        }
+
+        .checkout-section p {
+            font-size: 18px;
+        }
+
+        .checkout-section button {
+            padding: 12px 20px;
+            font-size: 16px;
+        }
+}
+/* General styles for the Buy Now section */
+.buy-now-section {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    max-width: 500px;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+    /* Buy Now section header */
+    .buy-now-section h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    /* Product description or additional details styling */
+    .buy-now-section p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 30px;
+    }
+
+    /* Price styling */
+    .buy-now-section .price {
+        font-size: 24px;
+        font-weight: bold;
+        color: #e74c3c;
+        margin-bottom: 30px;
+    }
+
+    /* Buy Now button styling */
+    .buy-now-section button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        /* Button hover effect */
+        .buy-now-section button:hover {
+            background-color: #45a049;
+        }
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    .buy-btn-section {
+        padding: 20px;
+    }
+
+        .buy-btn-section h2 {
+            font-size: 24px;
+        }
+
+        .buy-btn-section p {
+            font-size: 14px;
+        }
+
+        .buy-btn-section .price {
+            font-size: 22px;
+        }
+
+        .buy-btn-section button {
+            padding: 12px 20px;
+            font-size: 16px;
+        }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">Shopify Store</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="">SignIn</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <body>
+        
+
+    <section id="home" class="hero">
+        <h2>Welcome to Your Dream Store</h2>
+        <p>"Quality is not an act, it is a habit." - Aristotle</p>
+        <button class="shop-btn">Shop Now</button>
+    </section>
+<section id="products" class="product-section">
+    <h2>Our Products</h2>
+    <div class="product-slider">
+        <div class="product-card"> <img src="https://www.alamodelabel.in/cdn/shop/files/DFA8FA80-D9E2-44FA-9C41-7D156E4EBD2F_800x.jpg?v=1735462265" alt="Product"><p>"Style is a way to say who you are without speaking."</p><span class="price">$49.99</span><button class="buy-btn">Buy Now</button></div>
+        <div class="product-card"> <img src="https://rukminim2.flixcart.com/image/850/1250/xif0q/shoe/m/t/b/7-korean-looking-so-georgie-s-woman-girls-shoes-ifah-white-original-imah3ae5dxxhv5az.jpeg?q=90&crop=false" alt="Product"><p>"Give a girl the right shoes, and she can conquer the world."</p><span class="price">$89.99</span><button class="buy-btn">Buy Now</button></div>
+        <div class="product-card"> <img src="https://img.tatacliq.com/images/i19//1316Wx1468H/MP000000023041620_1316Wx1468H_202407262021321.jpeg" alt="Product"><p>"Time is what you make of it."</p><span class="price">$129.99</span><button class="buy-btn">Buy Now</button></div>
+        <div class="product-card"> <img src="https://img.tatacliq.com/images/i22//1316Wx1468H/MP000000024078075_1316Wx1468H_202501120230551.jpeg" alt="Product"><p>"A handbag is a woman’s best friend."</p><span class="price">$59.99</span><button class="buy-btn">Buy Now</button></div>
+        <div class="product-card"> <img src="https://www.bewakoof.com/blog/wp-content/uploads/2023/04/image-125.png" alt="Product"><p>"Accessories are what makes a woman and a man unique."</p><span class="price">$39.99</span><button class="buy-btn">Buy Now</button></div>
+    </div>
+</section>
+
+<section id="register" class="auth-section">
+    <h2>Register</h2>
+    <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="ConfirmPassword" required>
+        <button type="submit">Register</button>
+    </form>
+</section>
+
+<section id="checkout" class="checkout-section">
+    <h2>Checkout</h2>
+    <p>Total Amount: <strong id="total-price">$0.00</strong></p>
+    <button id="payBtn">Proceed to Payment</button>
+</section>
+    </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const shopBtn = document.querySelector(".shop-btn");
+    shopBtn.addEventListener("click", function () {
+        document.querySelector("#products").scrollIntoView({ behavior: "smooth" });
+    });
+
+    const slider = document.querySelector(".product-slider");
+    let isDragging = false;
+    let startX, scrollLeft;
+
+    slider.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        slider.classList.add("active");
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener("mouseleave", () => {
+        isDragging = false;
+        slider.classList.remove("active");
+    });
+
+    slider.addEventListener("mouseup", () => {
+        isDragging = false;
+        slider.classList.remove("active");
+    });
+
+    slider.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2; // Scroll speed
+        slider.scrollLeft = scrollLeft - walk;
+    });
+});
+document.querySelectorAll('.buy-btn').forEach(button => {
+    button.addEventListener('click', function () {
+        const price = this.previousElementSibling.textContent;
+        document.getElementById('total-price').textContent = price;
+    });
+});
+
+document.getElementById("payBtn").addEventListener("click", async function () {
+    const totalPrice = document.getElementById("total-price").textContent;
+    alert("Proceeding to payment for " + totalPrice);
+    // Payment Gateway Integration Here
+});
+    </script>
